@@ -83,6 +83,7 @@ def shell_sort(arr, sequence):
         while (2 ** k) - 1 < len(arr):
             gaps.append((2 ** k) - 1)
             k += 1
+        gaps.reverse()
 
     for gap in gaps:
         for i in range(gap, len(arr)):
