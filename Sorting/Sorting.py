@@ -67,17 +67,14 @@ def shell_sort(arr, sequence):
             gaps.append(gap)
             gap //= 2
     elif sequence == 'pratt':
-        i, j = 0, 0
-        while True:
-            gap = (2 ** i) * (3 ** j)
-            if gap > len(arr):
-                break
-            gaps.append(gap)
-            if i < j:
-                i += 1
-            else:
-                j += 1
-        gaps.reverse()
+        i = len(arr)
+        for i in range(0,math.ceil(math.log(n,3))):
+            for j in range(0,math.ceil(math.log(n,2))):
+                if ((3**i)*(2**j)>n/2):
+                    break
+                else:
+                    gaps.append((3**i)*(2**j))
+        gaps.sort(reverse=True)
     elif sequence == 'hibbard':
         k = 1
         while (2 ** k) - 1 < len(arr):
